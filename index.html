@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./src/hamburger.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <script src="./src/hamburger.js" defer></script>
+    <link rel="stylesheet" href="./src/audio-player.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -61,6 +63,78 @@
             </div>
         </div>
     </footer>
+
+    <div class="audio-player-container">
+        <button id="playPauseBtn" onclick="togglePlay()">
+            <i class="fas fa-play"></i>
+        </button>
+        <span class="song-info">Música Espiritual</span>
+        <div class="volume-control">
+            <i class="fas fa-volume-down" style="color: #ffd700; font-size: 14px;"></i>
+            <input type="range" class="volume-slider" min="0" max="100" value="30">
+        </div>
+        <audio id="audioPlayer" preload="metadata">
+            <source src="public/0215.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = playPauseBtn.querySelector('i');
+        const volumeSlider = document.querySelector('.volume-slider');
+        const volumeIcon = document.querySelector('.fa-volume-down');
+
+        // Establecer volumen inicial al 30%
+        audioPlayer.volume = 0.3;
+        volumeSlider.value = 30;
+
+        // Control de volumen
+        volumeSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            audioPlayer.volume = value / 100;
+            
+            // Actualizar ícono según el volumen
+            if (value > 50) {
+                volumeIcon.className = 'fas fa-volume-up';
+            } else if (value > 0) {
+                volumeIcon.className = 'fas fa-volume-down';
+            } else {
+                volumeIcon.className = 'fas fa-volume-mute';
+            }
+        });
+
+        function togglePlay() {
+            if (audioPlayer.paused) {
+                audioPlayer.play().catch(error => {
+                    console.log('Error al reproducir:', error);
+                });
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            } else {
+                audioPlayer.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+        }
+
+        // Verificar que el audio se cargó correctamente
+        audioPlayer.addEventListener('error', (e) => {
+            console.log('Error en el audio:', e);
+        });
+
+        audioPlayer.addEventListener('loadeddata', () => {
+            console.log('Audio cargado correctamente');
+        });
+
+        // Asegurarse de que la música comience pausada
+        window.addEventListener('load', () => {
+            audioPlayer.pause();
+            playPauseIcon.classList.remove('fa-pause');
+            playPauseIcon.classList.add('fa-play');
+        });
+    </script>
 </body>
 
 </html>

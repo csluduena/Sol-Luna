@@ -1,0 +1,98 @@
+.audio-player-container {
+    position: fixed;
+    bottom: 95px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.audio-player-container button {
+    background: none;
+    border: none;
+    color: #ffd700;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.audio-player-container button:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.audio-player-container .song-info {
+    color: #ffd700;
+    font-size: 12px;
+    font-family: 'Cinzel', serif;
+}
+
+/* Estilos para el control de volumen */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 5px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #fff;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .audio-player-container {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px;
+    }
+    
+    .audio-player-container .song-info {
+        font-size: 10px;
+    }
+
+    .volume-slider {
+        width: 40px;
+    }
+} 
