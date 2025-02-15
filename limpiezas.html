@@ -1,8 +1,14 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limpiezas Espirituales - Sol Y Luna</title>
     <link rel="stylesheet" href="./src/style.css">
     <link rel="stylesheet" href="./src/limpiezas.css">
+    <link rel="stylesheet" href="./src/audio-player.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="limpiezas-page">
     <header>
@@ -16,6 +22,7 @@
                 <a href="/magia-negra.html" class="nav-link">Sanación Magia Negra</a>
                 <a href="/magia-blanca.html" class="nav-link">Trabajo Magia Blanca</a>
                 <a href="/limpiezas.html" class="nav-link active">Limpiezas espirituales</a>
+                <a href="/videos.html" class="nav-link">Nuestros Videos</a>
                 <a href="/quienes-somos.html" class="nav-link">Quienes Somos</a>
             </div>
         </nav>
@@ -47,6 +54,21 @@
             </div>
         </div>
     </footer>
-</body>
 
+    <div class="audio-player-container">
+        <button id="playPauseBtn" onclick="togglePlay()">
+            <i class="fas fa-play"></i>
+        </button>
+        <span class="song-info">Música Espiritual</span>
+        <div class="volume-control">
+            <i class="fas fa-volume-down" style="color: #ffd700; font-size: 14px;"></i>
+            <input type="range" class="volume-slider" min="0" max="100" value="30">
+        </div>
+        <audio id="audioPlayer" preload="metadata">
+            <source src="./public/0215.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+    <script src="./src/audio-player.js"></script>
+</body>
 </html>
