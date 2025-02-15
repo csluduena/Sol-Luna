@@ -1,0 +1,60 @@
+.pendulo-page {
+    background: linear-gradient(135deg, #1a4a2c, #2c4a1a);
+}
+
+.pendulo-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    text-align: center;
+    color: #27ae60;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(39, 174, 96, 0.5);
+}
+
+.pendulo-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.pendulo-animation {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background: rgba(39, 174, 96, 0.1);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+    border-radius: 15px;
+}
+
+.pendulo-description {
+    background: rgba(39, 174, 96, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(39, 174, 96, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.pendulo-description h2 {
+    color: #27ae60;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.pendulo-description p {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .pendulo-container {
+        grid-template-columns: 1fr;
+    }
+}
