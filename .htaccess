@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Permitir que el servidor siga enlaces simbólicos
+Options +FollowSymLinks
+
+# Asegurarse que index.html es el archivo por defecto
+DirectoryIndex index.html
+
+# Remover .html de las URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Proteger el archivo .htaccess
+<Files .htaccess>
+    Order deny,allow
+    Deny from all
+</Files>
+
+# Redirigir si alguien intenta acceder a "index.html"
+RewriteRule ^Sol-Luna/index\.html$ /Sol-Luna/ [NC,R=301,L]
