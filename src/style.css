@@ -80,10 +80,10 @@ main {
 main::before {
     content: '';
     position: absolute;
-    top: -70%;
-    left: -70%;
-    right: -70%;
-    bottom: -70%;
+    top: -75%;
+    left: -75%;
+    right: -75%;
+    bottom: -75%;
     background: radial-gradient(circle, #000000 -18%, #d8b27d 24%, #000000 42%);
     z-index: -1;
     animation: rotateGradient 100s infinite linear, gradientAnimation 8s infinite alternate;
