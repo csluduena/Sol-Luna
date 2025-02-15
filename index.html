@@ -81,61 +81,9 @@
     </div>
 
     <script>
-        const audioPlayer = document.getElementById('audioPlayer');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playPauseIcon = playPauseBtn.querySelector('i');
-        const volumeSlider = document.querySelector('.volume-slider');
-        const volumeIcon = document.querySelector('.fa-volume-down');
-
-        // Establecer volumen inicial al 30%
-        audioPlayer.volume = 0.3;
-        volumeSlider.value = 30;
-
-        // Control de volumen
-        volumeSlider.addEventListener('input', (e) => {
-            const value = e.target.value;
-            audioPlayer.volume = value / 100;
-            
-            // Actualizar ícono según el volumen
-            if (value > 50) {
-                volumeIcon.className = 'fas fa-volume-up';
-            } else if (value > 0) {
-                volumeIcon.className = 'fas fa-volume-down';
-            } else {
-                volumeIcon.className = 'fas fa-volume-mute';
-            }
-        });
-
-        function togglePlay() {
-            if (audioPlayer.paused) {
-                audioPlayer.play().catch(error => {
-                    console.log('Error al reproducir:', error);
-                });
-                playPauseIcon.classList.remove('fa-play');
-                playPauseIcon.classList.add('fa-pause');
-            } else {
-                audioPlayer.pause();
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
-            }
-        }
-
-        // Verificar que el audio se cargó correctamente
-        audioPlayer.addEventListener('error', (e) => {
-            console.log('Error en el audio:', e);
-        });
-
-        audioPlayer.addEventListener('loadeddata', () => {
-            console.log('Audio cargado correctamente');
-        });
-
-        // Asegurarse de que la música comience pausada
-        window.addEventListener('load', () => {
-            audioPlayer.pause();
-            playPauseIcon.classList.remove('fa-pause');
-            playPauseIcon.classList.add('fa-play');
-        });
+        // Eliminar todo el código JavaScript del reproductor de audio
     </script>
+    <script src="./src/audio-player.js"></script>
 </body>
 
 </html>

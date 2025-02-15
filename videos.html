@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestros Videos - Sol Y Luna</title>
-    <link rel="stylesheet" href="./src/styleVideos.css">
+    <link rel="stylesheet" href="./src/styleVIdeos.css">
     <link rel="stylesheet" href="./src/videos.css">
     <link rel="stylesheet" href="./src/hamburger.css">
     <link rel="stylesheet" href="./src/audio-player.css">
@@ -85,46 +85,7 @@
     </div>
 
     <script>
-        // Audio player code
-        const audioPlayer = document.getElementById('audioPlayer');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const playPauseIcon = playPauseBtn.querySelector('i');
-        const volumeSlider = document.querySelector('.volume-slider');
-        const volumeIcon = document.querySelector('.fa-volume-down');
-
-        // Establecer volumen inicial al 30%
-        audioPlayer.volume = 0.3;
-        volumeSlider.value = 30;
-
-        // Control de volumen
-        volumeSlider.addEventListener('input', (e) => {
-            const value = e.target.value;
-            audioPlayer.volume = value / 100;
-            
-            if (value > 50) {
-                volumeIcon.className = 'fas fa-volume-up';
-            } else if (value > 0) {
-                volumeIcon.className = 'fas fa-volume-down';
-            } else {
-                volumeIcon.className = 'fas fa-volume-mute';
-            }
-        });
-
-        function togglePlay() {
-            if (audioPlayer.paused) {
-                audioPlayer.play().catch(error => {
-                    console.log('Error al reproducir:', error);
-                });
-                playPauseIcon.classList.remove('fa-play');
-                playPauseIcon.classList.add('fa-pause');
-            } else {
-                audioPlayer.pause();
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
-            }
-        }
-
-        // YouTube API y manejo de videos
+        // Mantener solo el código de YouTube, eliminar el código del reproductor de audio
         async function loadYouTubeVideos() {
             try {
                 const response = await fetch(
@@ -202,5 +163,6 @@
         // Cargar videos cuando se cargue la página
         window.addEventListener('load', loadYouTubeVideos);
     </script>
+    <script src="./src/audio-player.js"></script>
 </body>
 </html> 
