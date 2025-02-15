@@ -14,7 +14,7 @@
 
 body {
     font-family: 'Cinzel', serif;
-    background-color: var(--background-color);
+    /*background-color: var(--background-color);*/
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
@@ -23,7 +23,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background: rgba(26, 26, 46, 0.95);
+    background: #1a1a2e85;
     padding: 1rem;
     position: fixed;
     width: 100%;
@@ -80,10 +80,10 @@ main {
 main::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
+    top: -70%;
+    left: -70%;
+    right: -70%;
+    bottom: -70%;
     background: radial-gradient(circle, #000000 -18%, #d8b27d 24%, #000000 42%);
     z-index: -1;
     animation: rotateGradient 100s infinite linear, gradientAnimation 8s infinite alternate;
@@ -416,6 +416,15 @@ main::before {
     z-index: 2; /* Asegura que el texto esté por encima del gradiente */
 }
 
+.dr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 15%;
+}
+
 h1 {
     font-size: 5rem;
     margin-bottom: 1rem;
@@ -432,14 +441,17 @@ h1 {
 }
 
 .y {
-    color: var(--text-color);
     margin: 0 1rem;
     opacity: 0.8;
     display: inline-block;
+    background-image: linear-gradient(to right, #e6ad10 0%, #f1b50f 45%, #b1c0cd 55%, #b1c0cd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Esto hace que el color de texto sea transparente y deje ver el gradiente */
 }
 
 .luna {
-    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    background: linear-gradient(45deg, #D3E2EF, #494949);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
@@ -458,11 +470,11 @@ h1 {
 }
 
 .subtitle {
-    font-size: 2rem;
+    font-size: 36px;
     background: linear-gradient(45deg, #e1bee7, #9b59b6);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+    -webkit-text-fill-color: #000000f2;
+    text-shadow: -2px 1px 2px rgb(87 76 71);
     opacity: 0;
     animation: fadeIn 1s ease-out forwards 0.5s;
 }
@@ -488,7 +500,7 @@ h1 {
 
 /* Footer */
 footer {
-    background: rgba(26, 26, 46, 0.95);
+    background: #2e1a25d4;
     padding: 1.5rem;
     text-align: center;
     backdrop-filter: blur(10px);
